@@ -1,5 +1,19 @@
 'use strict';
 
+function indexOf(array, obj) {
+    var o, a;
+    if (typeof obj === 'object') {
+        a = _.map(array, function(item) {
+            return JSON.stringify(item);
+        });
+        o = JSON.stringify(obj);
+        return _.indexOf(a, o);
+    } else {
+
+    }
+    return _.indexOf(array, obj);
+}
+
 var directiveModule = angular.module('angularjs-dropdown-multiselect', []);
 
 directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$compile', '$parse',
@@ -267,10 +281,10 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
 
                     dontRemove = dontRemove || false;
 
-                    var exists = _.findIndex($scope.selectedModel, findObj) !== -1;
+                    var exists = indexOf($scope.selectedModel, findObj) !== -1;
 
                     if (!dontRemove && exists) {
-                        $scope.selectedModel.splice(_.findIndex($scope.selectedModel, findObj), 1);
+                        $scope.selectedModel.splice(indexOf($scope.selectedModel, findObj), 1);
                         $scope.externalEvents.onItemDeselect(findObj);
                     } else if (!exists && ($scope.settings.selectionLimit === 0 || $scope.selectedModel.length < $scope.settings.selectionLimit)) {
                         $scope.selectedModel.push(finalObj);
@@ -283,7 +297,7 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
                         return $scope.selectedModel !== null && angular.isDefined($scope.selectedModel[$scope.settings.idProp]) && $scope.selectedModel[$scope.settings.idProp] === getFindObj(id)[$scope.settings.idProp];
                     }
 
-                    return _.findIndex($scope.selectedModel, getFindObj(id)) !== -1;
+                    return indexOf($scope.selectedModel, getFindObj(id)) !== -1;
                 };
 
                 $scope.externalEvents.onInitDone();

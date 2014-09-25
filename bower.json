@@ -5,7 +5,17 @@
     "Dotan Simha <dotansimha@gmail.com>"
   ],
   "description": "AngularJS Dropdown Multiselect directive",
-  "keywords": ["angular", "angularjs", "directive", "dropdown", "multiselect", "checklist", "list", "bootstrap", "checkbox"],
+  "keywords": [
+    "angular",
+    "angularjs",
+    "directive",
+    "dropdown",
+    "multiselect",
+    "checklist",
+    "list",
+    "bootstrap",
+    "checkbox"
+  ],
   "license": "MIT",
   "main": "src/angularjs-dropdown-multiselect.js",
   "ignore": [
@@ -17,7 +27,8 @@
   ],
   "dependencies": {
     "angular": "~1.2.0",
-    "lodash": "~2.4.1"
+    // "lodash": "~2.4.1",
+    "underscore": "~1.7.0"
   },
   "devDependencies": {
     "angular": "~1.2.0",
